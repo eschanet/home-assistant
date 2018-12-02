@@ -1,0 +1,6 @@
+- platform: yr
+  name: yr
+  monitored_conditions:
+    - temperature
+    - pressure
+    - humidity

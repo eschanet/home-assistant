@@ -1,0 +1,14 @@
+- name: bedroom_evening_lights
+  entities:
+    light.sonoffbedroomlight:
+      state: off
+    light.eric_desk:
+      state: on
+      kelvin: 2700
+      brightness: 200
+      transition: 10
+    light.eric_nightstand:
+      state: on
+      kelvin: 2700
+      brightness: 200
+      transition: 10

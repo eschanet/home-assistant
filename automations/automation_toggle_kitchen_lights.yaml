@@ -1,0 +1,15 @@
+- alias: toggle_kitchen_lights
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.wall_switch_158d000183adbd
+      click_type: single
+  action:
+    service_template: >
+      {% if is_state('group.kitchen', 'on') %}
+        homeassistant.turn_off
+      {% else %}
+        homeassistant.turn_on
+      {% endif %}
+    entity_id: group.kitchen

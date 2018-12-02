@@ -1,0 +1,11 @@
+project_id: home-automation-minga
+
+exposed_domains:
+  - switch
+  - light
+entity_config:
+  light.sonoffkitchenlight:
+    name: Küchenzeile
+    aliases:
+      - bright lights
+      - entry lights

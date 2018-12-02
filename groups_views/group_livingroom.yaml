@@ -1,0 +1,10 @@
+livingroom:
+  name: Livingroom
+  entities:
+    #- light.livingroom
+    - light.sonofflivingroomlight
+
+liviginroom_tv:
+  name: TV
+  entities:
+    - media_player.etv

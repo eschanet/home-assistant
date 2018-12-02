@@ -1,0 +1,77 @@
+# - platform: mqtt
+#   name: "sonoff-kitchenlight"
+#   state_topic: "cmnd/sonoff-kitchenlight/POWER"
+#   command_topic: "cmnd/sonoff-kitchenlight/power"
+#   payload_on: "ON"
+#   payload_off: "OFF"
+#   optimistic: false
+#   qos: 1
+#   retain: true
+#
+# - platform: mqtt
+#   name: "sonoff-bedroom-light"
+#   state_topic: "cmnd/sonoff-bedroom-light/POWER"
+#   command_topic: "cmnd/sonoff-bedroom-light/power"
+#   payload_on: "ON"
+#   payload_off: "OFF"
+#   optimistic: false
+#   qos: 1
+#   retain: true
+#
+# - platform: mqtt
+#   name: "sonoff-livingroom-light"
+#   state_topic: "cmnd/sonoff-livingroom-light/POWER"
+#   command_topic: "cmnd/sonoff-livingroom-light/power"
+#   payload_on: "ON"
+#   payload_off: "OFF"
+#   optimistic: false
+#   qos: 1
+#   retain: true
+
+- platform: flux
+  lights:
+    - light.kitchen_light
+  name: Flux Kitchen
+  start_time: '7:00'
+  stop_time: '23:00'
+  start_colortemp: 3000
+  sunset_colortemp: 2000
+  stop_colortemp: 1000
+  brightness: 200
+  disable_brightness_adjust: True
+  mode: mired
+  transition: 30
+  interval: 60
+
+- platform: flux
+  lights:
+    - light.eric_nightstand
+    - light.eric_desk
+    - light.livingroom
+    - light.floor_light
+  name: Flux Bedroom
+  start_time: '7:00'
+  stop_time: '23:00'
+  start_colortemp: 3000
+  sunset_colortemp: 2000
+  stop_colortemp: 1000
+  brightness: 200
+  disable_brightness_adjust: True
+  mode: mired
+  transition: 30
+  interval: 60
+
+- platform: flux
+  lights:
+    - light.nick_room_main
+  name: Flux Nick Room
+  start_time: '7:00'
+  stop_time: '23:00'
+  start_colortemp: 3000
+  sunset_colortemp: 2000
+  stop_colortemp: 1000
+  brightness: 200
+  disable_brightness_adjust: True
+  mode: mired
+  transition: 30
+  interval: 60

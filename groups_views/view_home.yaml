@@ -1,0 +1,18 @@
+default_view:
+  view: yes
+  icon: mdi:lightbulb
+  name: Home
+  entities:
+    - group.kitchen
+    - group.eric_room
+    - group.nick_room
+    - group.bathroom
+    - group.livingroom
+    - light.gateway_light_34ce0091e554
+    - group.sensors
+    - group.scenes
+    - input_select.who_cooks
+    - device_tracker.ericiphone
+    - device_tracker.nickiphone
+    - device_tracker.nathalieiphone
+    - device_tracker.iphonedemina

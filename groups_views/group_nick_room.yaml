@@ -1,0 +1,4 @@
+nick_room:
+  name: Nick Room
+  entities:
+    - light.nick_room_main
