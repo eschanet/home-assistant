@@ -5,3 +5,4 @@ automation_view:
   entities:
     - group.automations_group
     - group.switches
+    - group.developments

@@ -2,7 +2,7 @@ livingroom:
   name: Livingroom
   entities:
     #- light.livingroom
-    - light.sonofflivingroomlight
+    - light.sonoff_livingroom_light
 
 liviginroom_tv:
   name: TV

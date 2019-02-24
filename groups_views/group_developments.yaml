@@ -1,0 +1,4 @@
+developments:
+  name: Developments
+  entities:
+    - binary_sensor.water_leak_sensor_158d000237265a

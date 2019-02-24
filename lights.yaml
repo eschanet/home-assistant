@@ -33,3 +33,12 @@
     payload_not_available: "Offline"
     qos: 1
     retain: true
+
+  - platform: group
+    name: kitchen_lights
+    entities:
+      - light.kitchen_light
+      - light.sonoff_kitchenlight
+      - light.kitchen_spot_1
+      - light.kitchen_spot_2
+      - light.kitchen_spot_3

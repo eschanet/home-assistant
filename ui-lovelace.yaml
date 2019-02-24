@@ -1,0 +1,159 @@
+title: Home
+views:
+  - cards:
+      - entities:
+          - entity: light.kitchen_lights
+        show_header_toggle: true
+        title: Kitchen Test
+        type: entities
+      - entities:
+          - entity: light.kitchen_light
+          - entity: light.sonoff_kitchenlight
+          - entity: light.kitchen_spot_1
+          - entity: light.kitchen_spot_2
+          - entity: light.kitchen_spot_3
+        show_header_toggle: true
+        title: Kitchen
+        type: entities
+      - entities:
+          - light.nick_room_main
+        show_header_toggle: true
+        title: Nick Room
+        type: entities
+      - entities:
+          - light.gateway_light_34ce0091e554
+        title: Light
+        type: entities
+      - entities:
+          - entity: light.eric_nightstand
+          - entity: light.eric_desk
+          - entity: light.sonoff_bedroom_light
+          - entity: light.livingroom
+          - entity: light.floor_light
+        show_header_toggle: true
+        title: Bedroom
+        type: entities
+      - entities:
+          - light.sonoff_livingroom_light
+        show_header_toggle: true
+        title: Livingroom
+        type: entities
+      - entities:
+          - scene.bedroom_evening_lights
+          - scene.bedroom_bedtime_lights
+          - input_select.bedroom_scene_select
+        show_header_toggle: true
+        title: Scenes
+        type: entities
+    badges:
+      - device_tracker.ericiphone
+      - device_tracker.nickiphone
+      - device_tracker.nathalieiphone
+      - device_tracker.iphonedemina
+    icon: 'mdi:lightbulb'
+    path: default_view
+    title: Lights
+  - badges: []
+    cards:
+      - entities:
+          - automation.sunset
+          - automation.coming_home_lights
+          - automation.bathroom_light_on
+          - automation.bathroom_light_off
+          - automation.bathroom_light_on_switch
+          - automation.bathroom_light_off_switch
+          - automation.toggle_liviginroom_light
+          - automation.toggle_bedroom_lights
+          - automation.toggle_nick_room_light
+          - automation.toggle_kitchen_lights
+          - script.test_telegr
+        show_header_toggle: true
+        title: Automation
+        type: entities
+      - entities:
+          - switch.flux_bedroom
+          - switch.flux_kitchen
+          - switch.flux_nick_room
+        show_header_toggle: true
+        title: Switches
+        type: entities
+      - entities:
+          - binary_sensor.water_leak_sensor_158d000237265a
+        show_header_toggle: true
+        title: Developments
+        type: entities
+      - entities:
+          - sensor.front_door
+          - sensor.window_1
+          - sensor.window_2
+          - sensor.window_3
+        show_header_toggle: true
+        title: Sensors
+        type: entities
+    icon: 'mdi:settings'
+    path: automation_view
+    title: Automation
+  - badges: []
+    cards:
+      - entities:
+          - sensor.dark_sky_apparent_temperature
+          - sensor.dark_sky_daily_temperature_low
+          - sensor.dark_sky_daily_temperature_high
+          - sensor.air_pressure_template
+          - sensor.dark_sky_uv_index
+          - sensor.dark_sky_cloud_coverage
+          - sensor.dark_sky_precip_type_template
+          - sensor.dark_sky_precip_probability_template
+          - sensor.dark_sky_daily_precip_intensity_max
+          - sensor.dark_sky_wind_bearing_template
+          - sensor.dark_sky_wind_speed
+        show_header_toggle: true
+        title: Today's Forecast
+        type: entities
+      - entities:
+          - sensor.dark_sky_daily_low_temperature_1
+          - sensor.dark_sky_daily_high_temperature_1
+          - sensor.air_pressure_tomorrow_template
+          - sensor.dark_sky_cloud_coverage_1
+          - sensor.dark_sky_precip_type_tomorrow_template
+          - sensor.dark_sky_precip_probability_tomorrow_template
+          - sensor.dark_sky_daily_max_precip_intensity_1
+          - sensor.dark_sky_wind_bearing_tomorrow_template
+          - sensor.dark_sky_wind_speed_1
+        show_header_toggle: true
+        title: Tomorrow's Forecast
+        type: entities
+      - entities:
+          - sensor.day_night
+          - sensor.solar_angle
+          - sensor.sunrise
+          - sensor.sunset
+          - sensor.moon
+          - sensor.season_template
+        show_header_toggle: true
+        title: Sun & Moon
+        type: entities
+    icon: 'mdi:weather-partlycloudy'
+    path: weather
+    title: Weather
+  - badges: []
+    cards:
+      - entities:
+          - sensor.time_online
+          - sensor.connected_clients
+          - sensor.current_version
+          - sensor.disk_free_space
+          - sensor.memory_use
+        show_header_toggle: true
+        title: System Status
+        type: entities
+    icon: 'mdi:server'
+    path: system_view
+    title: System
+  - badges: []
+    cards:
+      - entity: media_player.etv
+        type: media-control
+    icon: 'mdi:television-classic'
+    path: media_view
+    title: Media

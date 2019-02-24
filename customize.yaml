@@ -7,16 +7,28 @@ light.eric_nightstand:
 light.bathroom:
   friendly_name: Bathroom Light
   homebridge_visible: true
+
 light.kitchen_main:
   friendly_name: Kitchen Light
   homebridge_visible: true
-light.sonoffkitchenlight:
-  friendly_name: Kitchen Spots
+light.sonoff_kitchenlight:
+  friendly_name: Cooking area Spots
   homebridge_visible: true
-light.sonoffbedroomlight:
+
+light.kitchen_spot_1:
+  friendly_name: Kitchen Spot 1
+  homebridge_visible: true
+light.kitchen_spot_2:
+  friendly_name: Kitchen Spot 2
+  homebridge_visible: true
+light.kitchen_spot_3:
+  friendly_name: Kitchen Spot 3
+  homebridge_visible: true
+
+light.sonoff_bedroom_light:
   friendly_name: Spot Light
   homebridge_visible: true
-light.sonofflivingroomlight:
+light.sonoff_livingroom_light:
   friendly_name: Livingroom Spot
   homebridge_visible: true
 light.livingroom:
@@ -115,6 +127,19 @@ binary_sensor.wall_switch_158d0001834217:
 binary_sensor.wall_switch_158d000183adbd:
   friendly_name: Wallswitch1
   homebridge_hidden: true
+
+sensor.temperature_158d0002789d06:
+  friendly_name: Temperature
+sensor.humidity_158d0002789d06:
+  friendly_name: Humidity
+sensor.pressure_158d0002789d06:
+  friendly_name: Pressure
+sensor.temperature_158d0002789e17:
+  friendly_name: Temperature
+sensor.humidity_158d0002789e17:
+  friendly_name: Humidity
+sensor.pressure_158d0002789e17:
+  friendly_name: Pressure
 
 automation.sunset:
   homebridge_hidden: true

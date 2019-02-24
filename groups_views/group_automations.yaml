@@ -3,8 +3,8 @@ automations_group:
   entities:
     - automation.sunset
     - automation.coming_home_lights
-    - automation.bathroom_light_on
-    - automation.bathroom_light_off
+    # - automation.bathroom_light_on
+    # - automation.bathroom_light_off
     - automation.bathroom_light_on_switch
     - automation.bathroom_light_off_switch
     - automation.toggle_liviginroom_light

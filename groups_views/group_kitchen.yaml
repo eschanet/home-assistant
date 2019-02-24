@@ -2,4 +2,10 @@ kitchen:
   name: Kitchen
   entities:
     - light.kitchen_light
-    - light.sonoffkitchenlight
+    - light.sonoff_kitchenlight
+    - light.kitchen_spot_1
+    - light.kitchen_spot_2
+    - light.kitchen_spot_3
+    - sensor.temperature_158d0002789e17
+    - sensor.humidity_158d0002789e17
+    - sensor.pressure_158d0002789e17
