@@ -1,0 +1,7 @@
+automation_view:
+  view: yes
+  icon: mdi:settings
+  name: Automation
+  entities:
+    - group.automations_group
+    - group.switches

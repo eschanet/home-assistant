@@ -1,0 +1,7 @@
+my_homies:
+  name: Homies
+  entities:
+    - device_tracker.ericiphone
+    - device_tracker.nathalieiphone
+    - device_tracker.nickiphone
+    - device_tracker.iphonedemina

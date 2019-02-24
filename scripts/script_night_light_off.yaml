@@ -1,0 +1,6 @@
+turn_off_night_light:
+  alias: Turn on night light
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: light.gateway_light_34ce0091e554

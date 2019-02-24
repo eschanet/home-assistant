@@ -1,0 +1,6 @@
+media_view:
+  view: yes
+  icon: mdi:television-classic
+  name: Media
+  entities:
+    - group.liviginroom_tv

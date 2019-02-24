@@ -1,0 +1,4 @@
+bathroom:
+  name: Bathroom
+  entities:
+    #- light.kitchen_main

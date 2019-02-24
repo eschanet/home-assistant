@@ -1,0 +1,11 @@
+###########################################
+# Weather Tab
+###########################################
+Weather:
+  view: yes
+  icon: mdi:weather-partlycloudy
+  name: Weather
+  entities:
+    - group.today_forecast
+    - group.tomorrow_forecast
+    - group.sun_moon

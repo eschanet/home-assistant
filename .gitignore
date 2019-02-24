@@ -1,0 +1,23 @@
+# Ignore everything
+*
+
+# Don't ignore directories, so we can recurse into them
+!*/
+
+# Add my necessary files
+!*.yaml
+!.gitignore
+!*.md
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+themes/
+
+# Ensure these YAML files are ignored, otherwise secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+history.yaml
+known_devices.yaml
+._*

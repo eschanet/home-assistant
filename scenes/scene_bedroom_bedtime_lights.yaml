@@ -1,0 +1,19 @@
+- name: bedroom_bedtime_lights
+  entities:
+    light.sonoffbedroomlight:
+      state: off
+    light.eric_desk:
+      state: on
+      color_temp: 480
+      brightness: 10
+      transition: 10
+    light.floor_light:
+      state: on
+      color_temp: 480
+      brightness: 10
+      transition: 10
+    light.eric_nightstand:
+      state: on
+      color_temp: 480
+      brightness: 10
+      transition: 10

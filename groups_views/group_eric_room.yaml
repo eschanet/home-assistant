@@ -1,0 +1,8 @@
+eric_room:
+  name: Bedroom
+  entities:
+    - light.eric_nightstand
+    - light.eric_desk
+    - light.sonoffbedroomlight
+    - light.livingroom
+    - light.floor_light

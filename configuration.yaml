@@ -1,0 +1,170 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_location_latitude
+  longitude: !secret home_location_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 500
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Berlin
+  # Customization file
+  customize: !include customize.yaml
+
+  auth_providers:
+   - type: homeassistant
+   #- type: legacy_api_password # in case I need to use that horrible legacy stuff again  ¯\_(ツ)_/¯
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Enables configuration UI
+config:
+
+#hassio tab
+hassio:
+
+#logger
+#logger:
+
+# InfluxDB (add grafana?)
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state
+
+# embed influxDB into frontend
+panel_iframe:
+  influxdb:
+    title: InfluxDB
+    icon: mdi:chart-areaspline
+    url: https://hassio.local:8888
+
+panel_iframe:
+  grafana:
+    title: Grafana
+    icon: mdi:chart-timeline
+    url: https://hassio.local:3000
+
+#telegram
+notify:
+  - name: telegram
+    platform: telegram
+    chat_id: !secret telegram_chatID
+
+telegram_bot:
+  platform: polling
+  api_key: !secret telegram_api
+  allowed_chat_ids:
+    - !secret telegram_chatID
+
+#iOS
+ios:
+
+#Apple TV
+apple_tv:
+  - host: !secret apple_tv_ip
+    login_id: !secret appple_tv_login_id
+    name: Apple TV
+
+#Google home mini
+google_assistant: !include google_assistant.yaml
+
+#tradfri
+tradfri:
+  host: !secret tradfri_bridge_ip
+
+#hue
+hue:
+  bridges:
+    - host: !secret hue_bridge_ip
+      allow_unreachable: true
+
+mqtt:
+  broker: !secret mqtt_broker_ip
+  client_id: home-assistant-1
+  keepalive: 60
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  protocol: 3.1
+  birth_message:
+    topic: "tele/hass1/LWT"
+    payload: "Online"
+    qos: 1
+    retain: true
+  will_message:
+    topic: "tele/hass1/LWT"
+    payload: "Offline"
+    qos: 1
+    retain: true
+
+#xiaomi   - host: 192.168.178.40
+
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - mac: !secret xiaomi_bridge_mac
+      key: !secret xiaomi_bridge_key
+
+device_tracker:
+  - platform: fritz
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: false
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # ssl_certificate: /ssl/fullchain.pem
+  # ssl_key: /ssl/privkey.pem
+
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+#discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history: !include history.yaml
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+lovelace:
+  mode: yaml
+
+light: !include lights.yaml
+switch: !include switches.yaml
+sensor: !include_dir_merge_list sensors/
+scene: !include_dir_merge_list scenes
+group: !include_dir_merge_named groups_views
+automation: !include_dir_merge_list automations
+script: !include_dir_merge_named scripts/
+input_select: !include input_select.yaml

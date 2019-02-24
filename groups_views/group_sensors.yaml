@@ -1,0 +1,8 @@
+
+sensors:
+  name: Sensors
+  entities:
+    - sensor.front_door
+    - sensor.window_1
+    - sensor.window_2
+    - sensor.window_3

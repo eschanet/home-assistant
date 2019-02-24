@@ -1,0 +1,6 @@
+scenes:
+  name: Scenes
+  entities:
+    - scene.bedroom_evening_lights
+    - scene.bedroom_bedtime_lights
+    - input_select.bedroom_scene_select

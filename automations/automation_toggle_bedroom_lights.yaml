@@ -1,0 +1,27 @@
+- alias: toggle_bedroom_lights
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_158d0002134f5b
+      click_type: single
+  action:
+    service_template: >
+      {% if is_state('group.eric_room', 'on') %}
+        homeassistant.turn_off
+      {% else %}
+        homeassistant.turn_on
+      {% endif %}
+    entity_id: group.eric_room
+
+- alias: toggle_bedroom_scene
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_158d0002134dfa
+      click_type: single
+  action:
+    service: input_select.select_next
+    data:
+      entity_id: input_select.bedroom_scene_select
