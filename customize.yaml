@@ -9,10 +9,10 @@ light.bathroom:
   homebridge_visible: true
 
 light.kitchen_main:
-  friendly_name: Kitchen Light
+  friendly_name: Main Light
   homebridge_visible: true
 light.sonoff_kitchenlight:
-  friendly_name: Cooking area Spots
+  friendly_name: Cooking Area Spots
   homebridge_visible: true
 
 light.kitchen_spot_1:
@@ -23,6 +23,9 @@ light.kitchen_spot_2:
   homebridge_visible: true
 light.kitchen_spot_3:
   friendly_name: Kitchen Spot 3
+  homebridge_visible: true
+light.kitchen_spots:
+  friendly_name: Kitchen Spots
   homebridge_visible: true
 
 light.sonoff_bedroom_light:

@@ -1,60 +1,92 @@
+resources:
+  - url: /local/slider-entity-row.js?v=1
+    type: js
+
 title: Home
 views:
+########################################################
+##
+##              LIGHTS
+##
+########################################################
   - cards:
       - entities:
-          - entity: light.kitchen_lights
-        show_header_toggle: true
-        title: Kitchen Test
-        type: entities
-      - entities:
+          - type: custom:slider-entity-row
+            entity: light.all_kitchen_lights
+            name: All
+            icon: mdi:light-switch
           - entity: light.kitchen_light
+            name: Main light
+            icon: mdi:ceiling-light
           - entity: light.sonoff_kitchenlight
-          - entity: light.kitchen_spot_1
-          - entity: light.kitchen_spot_2
-          - entity: light.kitchen_spot_3
+            name: Cooking area
+            icon: mdi:track-light
+          - entity: light.kitchen_spots
+            name: Spots
+            icon: mdi:track-light
         show_header_toggle: true
         title: Kitchen
         type: entities
       - entities:
-          - light.nick_room_main
-        show_header_toggle: true
-        title: Nick Room
-        type: entities
-      - entities:
-          - light.gateway_light_34ce0091e554
-        title: Light
-        type: entities
-      - entities:
           - entity: light.eric_nightstand
+            name: Nightstand
+            icon: mdi:lamp
           - entity: light.eric_desk
-          - entity: light.sonoff_bedroom_light
-          - entity: light.livingroom
+            name: Desk
+            icon: mdi:desk-lamp
           - entity: light.floor_light
+            name: Floor lamp
+            icon: mdi:floor-lamp
+          - entity: light.sonoff_bedroom_light
+            name: Spot
+            icon: mdi:lamp
+          - entity: light.livingroom
+            name: Shelf lamp
+            icon: mdi:lamp
         show_header_toggle: true
         title: Bedroom
         type: entities
       - entities:
-          - light.sonoff_livingroom_light
+          - entity: light.nick_room_main
+            name: Main light
+            icon: mdi:ceiling-light
+        show_header_toggle: true
+        title: Nick Room
+        type: entities
+      - entities:
+          - entity: light.sonoff_livingroom_light
+            name: Lamp
+            icon: mdi:lamp
         show_header_toggle: true
         title: Livingroom
         type: entities
-      - entities:
-          - scene.bedroom_evening_lights
-          - scene.bedroom_bedtime_lights
-          - input_select.bedroom_scene_select
-        show_header_toggle: true
-        title: Scenes
-        type: entities
-    badges:
-      - device_tracker.ericiphone
-      - device_tracker.nickiphone
-      - device_tracker.nathalieiphone
-      - device_tracker.iphonedemina
     icon: 'mdi:lightbulb'
-    path: default_view
     title: Lights
-  - badges: []
-    cards:
+  ########################################################
+  ##
+  ##              HOME
+  ##
+  ########################################################
+  - cards:
+      - type: entity-filter
+        entities:
+          - device_tracker.ericiphone
+          - device_tracker.nickiphone
+          - device_tracker.nathalieiphone
+          - device_tracker.iphonedemina
+        state_filter:
+          - home
+        card:
+          type: glance
+          title: People at home
+    icon: 'mdi:home'
+    title: Home
+########################################################
+##
+##              AUTOMATIONS
+##
+########################################################
+  - cards:
       - entities:
           - automation.sunset
           - automation.coming_home_lights
@@ -93,6 +125,11 @@ views:
     icon: 'mdi:settings'
     path: automation_view
     title: Automation
+########################################################
+##
+##              WEATHER
+##
+########################################################
   - badges: []
     cards:
       - entities:

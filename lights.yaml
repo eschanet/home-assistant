@@ -35,10 +35,17 @@
     retain: true
 
   - platform: group
-    name: kitchen_lights
+    name: all_kitchen_lights
     entities:
       - light.kitchen_light
       - light.sonoff_kitchenlight
+      - light.kitchen_spot_1
+      - light.kitchen_spot_2
+      - light.kitchen_spot_3
+
+  - platform: group
+    name: kitchen_spots
+    entities:
       - light.kitchen_spot_1
       - light.kitchen_spot_2
       - light.kitchen_spot_3
