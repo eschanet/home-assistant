@@ -132,17 +132,17 @@ binary_sensor.wall_switch_158d000183adbd:
   homebridge_hidden: true
 
 sensor.temperature_158d0002789d06:
-  friendly_name: Temperature
+  friendly_name: Temperature Bedroom
 sensor.humidity_158d0002789d06:
-  friendly_name: Humidity
+  friendly_name: Humidity Bedroom
 sensor.pressure_158d0002789d06:
-  friendly_name: Pressure
+  friendly_name: Pressure Bedroom
 sensor.temperature_158d0002789e17:
-  friendly_name: Temperature
+  friendly_name: Temperature Kitchen
 sensor.humidity_158d0002789e17:
-  friendly_name: Humidity
+  friendly_name: Humidity Kitchen
 sensor.pressure_158d0002789e17:
-  friendly_name: Pressure
+  friendly_name: Pressure Kitchen
 
 automation.sunset:
   homebridge_hidden: true

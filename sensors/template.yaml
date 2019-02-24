@@ -24,9 +24,9 @@
         {% endif %}
       icon_template: >-
         {% if is_state('binary_sensor.door_window_sensor_158d00020455e1', 'on') %}
-          mdi:door-open
+          mdi:window-open
         {% else %}
-          mdi:door-closed
+          mdi:window-closed
         {% endif %}
     window_2:
       friendly_name: "window_2"
@@ -52,21 +52,27 @@
         {% endif %}
       icon_template: >-
         {% if is_state('binary_sensor.door_window_sensor_158d000205b57f', 'on') %}
-          mdi:door-open
+          mdi:window-open
         {% else %}
-          mdi:door-closed
+          mdi:window-closed
         {% endif %}
     water_1:
       friendly_name: "Water sensor"
       value_template: >-
         {% if is_state('binary_sensor.door_window_sensor_158d000205b57f', 'on') %}
-          Open
+          Wet
         {% else %}
-          Closed
+          Dry
         {% endif %}
       icon_template: >-
         {% if is_state('binary_sensor.door_window_sensor_158d000205b57f', 'on') %}
-          mdi:door-open
+          mdi:water
         {% else %}
-          mdi:door-closed
+          mdi:water-off
         {% endif %}
+      # rgb_color_template: >-
+      #   {% if is_state('binary_sensor.door_window_sensor_158d000205b57f', 'on') %}
+      #     var(--primary-text-color)
+      #   {% else %}
+      #     var(--accent-color)
+      #   {% endif %}

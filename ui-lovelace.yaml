@@ -1,6 +1,8 @@
 resources:
   - url: /local/slider-entity-row.js?v=1
     type: js
+  - url: /local/mini-graph-card-bundle.js?v=0.3.0
+    type: module
 
 title: Home
 views:
@@ -79,6 +81,77 @@ views:
         card:
           type: glance
           title: People at home
+      # - type: custom:mini-graph-card
+      #   entities:
+      #     - entity: sensor.temperature_158d0002789d06
+      #       name: Bedroom
+      #     - entity: sensor.temperature_158d0002789e17
+      #       name: Kitchen
+      #   name: Temperature
+      - type: glance
+        title: Doors and windows
+        entities:
+        - entity: sensor.front_door
+          name: Front door
+        - entity: sensor.window_1
+          name: Kitchen
+        - entity: sensor.window_3
+          name: Bedroom
+        - entity: sensor.window_2
+          name: Dummy
+      - type: glance
+        title: Sensors
+        entities:
+        - entity: sensor.water_1
+          name: Washing machine
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.temperature_158d0002789d06
+            line_color: '#3498db'
+            line_width: 8
+            font_size: 75
+            name: Bedroom
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.humidity_158d0002789d06
+            line_color: '#e74c3c'
+            line_width: 8
+            font_size: 75
+            name: Bedroom
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.pressure_158d0002789d06
+            line_color: '#f1c40f'
+            line_width: 8
+            name: Bedroom
+            icon: mdi:gauge
+            font_size: 75
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.temperature_158d0002789e17
+            line_color: '#3498db'
+            line_width: 8
+            font_size: 75
+            name: Kitchen
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.humidity_158d0002789e17
+            line_color: '#e74c3c'
+            line_width: 8
+            font_size: 75
+            name: Kitchen
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.pressure_158d0002789e17
+            line_color: '#f1c40f'
+            line_width: 8
+            name: Kitchen
+            icon: mdi:gauge
+            font_size: 75
     icon: 'mdi:home'
     title: Home
 ########################################################
