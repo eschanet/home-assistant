@@ -6,9 +6,37 @@
 
 - platform: systemmonitor
   resources:
-    # - type: since_last_boot
-    # - type: memory_use_percent
+    - type: disk_use_percent
+      arg: /
+    - type: disk_use
+      arg: /
+    - type: disk_free
+      arg: /
+    - type: memory_use_percent
     - type: memory_use
+    - type: memory_free
+    - type: swap_use_percent
+    - type: swap_use
+    - type: swap_free
+    - type: load_1m
+    - type: load_5m
+    - type: load_15m
+    - type: network_in
+      arg: eth0
+    - type: network_out
+      arg: eth0
+    - type: packets_in
+      arg: eth0
+    - type: packets_out
+      arg: eth0
+    - type: ipv4_address
+      arg: eth0
+    - type: ipv6_address
+      arg: eth0
+    - type: processor_use
+    - type: process
+      arg: octave-cli
+    - type: last_boot
 
 - platform: command_line
   command: "df -h | grep none | awk '{print $4}'"
@@ -19,26 +47,34 @@
 
 - platform: version
 
-#Since last boot is gone ... :-(
-# - platform: template
-#   sensors:
-#     since_last_boot_template:
-#       friendly_name: Time since last boot
-#       value_template: >-
-#         {%- set slb = states.sensor.since_last_boot.state.split(' ') -%}
-#         {%- set count = slb | length -%}
-#         {%- set hms = slb[count - 1] -%}
-#         {%- set hms_trimmed = hms.split('.')[0] -%}
-#         {%- set hms_split = hms_trimmed.split(':') -%}
-#         {%- set hours = hms_split[0] | int -%}
-#
-#         {%- if count == 3 -%}
-#           {{ slb[0] ~ ' ' ~ slb[1] ~ ' ' }}
-#         {%- endif -%}
-#         {%- if hours > 0 -%}
-#           {%- if hours == 1 -%}
-#             1 hour
-#           {%- else -%}
-#             {{ hours }} hours
-#           {%- endif -%}
-#         {%- endif -%}
+- platform: template
+  sensors:
+    load_1m_template:
+      friendly_name: Load 1m
+      value_template: "{{ states('sensor.load_1m') | float | round(2) }}"
+    load_5m_template:
+      friendly_name: Load 5m
+      value_template: "{{ states('sensor.load_5m') | float | round(2) }}"
+    load_15m_template:
+      friendly_name: Load 15m
+      value_template: "{{ states('sensor.load_15m') | float | round(2) }}"
+    last_boot_template:
+      friendly_name: Time since last boot
+      value_template: >-
+        {%- set slb = states.sensor.last_boot.state.split(' ') -%}
+        {%- set count = slb | length -%}
+        {%- set hms = slb[count - 1] -%}
+        {%- set hms_trimmed = hms.split('.')[0] -%}
+        {%- set hms_split = hms_trimmed.split(':') -%}
+        {%- set hours = hms_split[0] | int -%}
+
+        {%- if count == 3 -%}
+          {{ slb[0] ~ ' ' ~ slb[1] ~ ' ' }}
+        {%- endif -%}
+        {%- if hours > 0 -%}
+          {%- if hours == 1 -%}
+            1 hour
+          {%- else -%}
+            {{ hours }} hours
+          {%- endif -%}
+        {%- endif -%}

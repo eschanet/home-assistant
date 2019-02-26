@@ -3,6 +3,10 @@ resources:
     type: js
   - url: /local/mini-graph-card-bundle.js?v=0.3.0
     type: module
+  - url: /local/cards/lovelace-card-tools/card-tools.js?v=0.3
+    type: js
+  - url: /local/cards/lovelace-fold-entity-row/fold-entity-row.js?v=1.0
+    type: js
 
 title: Home
 views:
@@ -23,13 +27,29 @@ views:
           - entity: light.sonoff_kitchenlight
             name: Cooking area
             icon: mdi:track-light
-          - entity: light.kitchen_spots
-            name: Spots
-            icon: mdi:track-light
+          - type: custom:fold-entity-row
+            head:
+                entity: light.kitchen_spots
+                name: Spots
+                icon: mdi:track-light
+            items:
+              - entity: light.kitchen_spot_1
+                name: Spot 1
+                icon: mdi:track-light
+              - entity: light.kitchen_spot_2
+                name: Spot 2
+                icon: mdi:track-light
+              - entity: light.kitchen_spot_3
+                name: Spot 3
+                icon: mdi:track-light
         show_header_toggle: true
         title: Kitchen
         type: entities
       - entities:
+          - type: custom:slider-entity-row
+            entity: light.all_bedroom_lights
+            name: All
+            icon: mdi:light-switch
           - entity: light.eric_nightstand
             name: Nightstand
             icon: mdi:lamp
@@ -39,9 +59,6 @@ views:
           - entity: light.floor_light
             name: Floor lamp
             icon: mdi:floor-lamp
-          - entity: light.sonoff_bedroom_light
-            name: Spot
-            icon: mdi:lamp
           - entity: light.livingroom
             name: Shelf lamp
             icon: mdi:lamp
@@ -52,13 +69,16 @@ views:
           - entity: light.nick_room_main
             name: Main light
             icon: mdi:ceiling-light
-        show_header_toggle: true
+        show_header_toggle: false
         title: Nick Room
         type: entities
       - entities:
           - entity: light.sonoff_livingroom_light
             name: Lamp
             icon: mdi:lamp
+          - entity: light.sonoff_bedroom_light
+            name: Spot
+            icon: mdi:ceiling-light
         show_header_toggle: true
         title: Livingroom
         type: entities
@@ -154,50 +174,7 @@ views:
             font_size: 75
     icon: 'mdi:home'
     title: Home
-########################################################
-##
-##              AUTOMATIONS
-##
-########################################################
-  - cards:
-      - entities:
-          - automation.sunset
-          - automation.coming_home_lights
-          - automation.bathroom_light_on
-          - automation.bathroom_light_off
-          - automation.bathroom_light_on_switch
-          - automation.bathroom_light_off_switch
-          - automation.toggle_liviginroom_light
-          - automation.toggle_bedroom_lights
-          - automation.toggle_nick_room_light
-          - automation.toggle_kitchen_lights
-          - script.test_telegr
-        show_header_toggle: true
-        title: Automation
-        type: entities
-      - entities:
-          - switch.flux_bedroom
-          - switch.flux_kitchen
-          - switch.flux_nick_room
-        show_header_toggle: true
-        title: Switches
-        type: entities
-      - entities:
-          - binary_sensor.water_leak_sensor_158d000237265a
-        show_header_toggle: true
-        title: Developments
-        type: entities
-      - entities:
-          - sensor.front_door
-          - sensor.window_1
-          - sensor.window_2
-          - sensor.window_3
-        show_header_toggle: true
-        title: Sensors
-        type: entities
-    icon: 'mdi:settings'
-    path: automation_view
-    title: Automation
+
 ########################################################
 ##
 ##              WEATHER
@@ -246,24 +223,140 @@ views:
     icon: 'mdi:weather-partlycloudy'
     path: weather
     title: Weather
-  - badges: []
-    cards:
-      - entities:
-          - sensor.time_online
-          - sensor.connected_clients
-          - sensor.current_version
-          - sensor.disk_free_space
-          - sensor.memory_use
-        show_header_toggle: true
-        title: System Status
-        type: entities
+########################################################
+##
+##              SYSTEM
+##
+########################################################
+  - cards:
+      - type: vertical-stack
+        cards:
+          - entities:
+              - sensor.time_online
+              - sensor.connected_clients
+              - sensor.current_version
+              - sensor.last_boot
+            show_header_toggle: false
+            title: General
+            type: entities
+          - entities:
+              - sensor.network_in
+              - sensor.network_out
+              - sensor.packets_in
+              - sensor.packets_out
+            show_header_toggle: false
+            title: Network
+            type: entities
+      - type: vertical-stack
+        cards:
+          - type: gauge
+            unit: '%'
+            entity: sensor.processor_use
+            name: Processor usage
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
+          - type: gauge
+            unit: '%'
+            entity: sensor.memory_use_percent
+            name: Memory usage
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
+          - type: gauge
+            unit: '%'
+            entity: sensor.disk_use_percent
+            name: Disk usage
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
+          - type: gauge
+            unit: '%'
+            entity: sensor.swap_use_percent
+            name: Swap usage
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
+      - type: vertical-stack
+        cards:
+          - type: gauge
+            entity: sensor.load_1m_template
+            name: Load 1m
+            max: 1.0
+            severity:
+              green: 0.0
+              yellow: 0.5
+              red: 0.9
+          - type: gauge
+            entity: sensor.load_5m_template
+            name: Load 5m
+            max: 1.0
+            severity:
+              green: 0.0
+              yellow: 0.5
+              red: 0.9
+          - type: gauge
+            entity: sensor.load_15m_template
+            name: Load 15m
+            max: 1.0
+            severity:
+              green: 0.0
+              yellow: 0.5
+              red: 0.9
     icon: 'mdi:server'
-    path: system_view
     title: System
-  - badges: []
-    cards:
-      - entity: media_player.etv
-        type: media-control
-    icon: 'mdi:television-classic'
-    path: media_view
-    title: Media
+
+########################################################
+##
+##              AUTOMATIONS
+##
+########################################################
+  - cards:
+      - type: markdown
+        content: >
+          ## System Settings
+
+          Panel for system settings. If you are not supposed to be here, please do not change anything.
+
+          **Any changes will be reported to the administrator.**
+      - entities:
+          - automation.sunset
+          - automation.coming_home_lights
+          - automation.bathroom_light_on
+          - automation.bathroom_light_off
+          - automation.bathroom_light_on_switch
+          - automation.bathroom_light_off_switch
+          - automation.toggle_liviginroom_light
+          - automation.toggle_bedroom_lights
+          - automation.toggle_nick_room_light
+          - automation.toggle_kitchen_lights
+          - script.test_telegr
+        show_header_toggle: true
+        title: Automation
+        type: entities
+      - entities:
+          - switch.flux_bedroom
+          - switch.flux_kitchen
+          - switch.flux_nick_room
+        show_header_toggle: true
+        title: Switches
+        type: entities
+      - entities:
+          - binary_sensor.water_leak_sensor_158d000237265a
+        show_header_toggle: true
+        title: Developments
+        type: entities
+      - entities:
+          - sensor.front_door
+          - sensor.window_1
+          - sensor.window_2
+          - sensor.window_3
+        show_header_toggle: true
+        title: Sensors
+        type: entities
+    icon: 'mdi:settings'
+    title: Automation

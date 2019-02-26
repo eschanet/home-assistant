@@ -1,14 +1,5 @@
 automations_group:
   name: Automation
   entities:
-    - automation.sunset
-    - automation.coming_home_lights
-    # - automation.bathroom_light_on
-    # - automation.bathroom_light_off
-    - automation.bathroom_light_on_switch
-    - automation.bathroom_light_off_switch
-    - automation.toggle_liviginroom_light
-    - automation.toggle_bedroom_lights
-    - automation.toggle_nick_room_light
-    - automation.toggle_kitchen_lights
+    - group.all_automations
     - script.test_telegr

@@ -1,0 +1,15 @@
+- alias: toggle_kitchen_spots
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_158d0002134dfa
+      click_type: double
+  action:
+    service_template: >
+      {% if is_state('group.kitchen', 'on') %}
+        homeassistant.turn_off
+      {% else %}
+        homeassistant.turn_on
+      {% endif %}
+    entity_id: light.kitchen_spots

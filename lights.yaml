@@ -49,3 +49,11 @@
       - light.kitchen_spot_1
       - light.kitchen_spot_2
       - light.kitchen_spot_3
+
+  - platform: group
+    name: all_bedroom_lights
+    entities:
+      - light.eric_nightstand
+      - light.eric_desk
+      - light.floor_light
+      - light.livingroom

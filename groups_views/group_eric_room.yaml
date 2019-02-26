@@ -3,7 +3,6 @@ eric_room:
   entities:
     - light.eric_nightstand
     - light.eric_desk
-    - light.sonoff_bedroom_light
     - light.livingroom
     - light.floor_light
     - sensor.temperature_158d0002789d06
