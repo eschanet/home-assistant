@@ -1,0 +1,6 @@
+going_to_sleep:
+  alias: Going to sleep
+  sequence:
+  - entity_id: input_boolean.sleep_mode
+    service: input_boolean.turn_on
+  # - service: script.turn_off_everything_non_automatic

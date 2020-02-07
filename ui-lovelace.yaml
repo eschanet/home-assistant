@@ -1,0 +1,741 @@
+resources:
+  - url: /local/slider-entity-row.js?v=1.1
+    type: js
+  - url: /local/fold-entity-row.js
+    type: module
+  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+    type: module
+  - url: /local/cards/lovelace-card-tools/card-tools.js?v=0.3.2
+    type: js
+  - url: /local/cards/lovelace-fold-entity-row/fold-entity-row.js?v=1.0.1
+    type: js
+  - url: /community_plugin/custom-header/custom-header.js
+    type: module
+  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+    type: js
+  - url: /community_plugin/button-card/button-card.js
+    type: module
+
+background: var(--background-image)
+custom_header:
+  background: 'rgba(155, 155, 155, 0.25)'
+  swipe_animate: fade
+  swipe_prevent_default: true
+  compact_mode: true
+  button_text:
+    options: '{{ hours24 }}:{{ minutesLZ }}'
+
+title: Home
+views:
+########################################################
+##
+##              LIGHTS
+##
+########################################################
+  - cards:
+      - entities:
+          - type: custom:fold-entity-row
+            head:
+              type: custom:slider-entity-row
+              entity: light.all_kitchen_lights
+              name: All
+              icon: mdi:light-switch
+            entities:
+              - entity: scene.away_pandu_lights
+                name: Dog Alone
+                tap_action:
+                 action: call-service
+                 service: scene.turn_on
+                 service_data:
+                   entity_id: scene.away_pandu_lights
+          - entity: light.kitchen_light
+            name: Main light
+            icon: mdi:ceiling-light
+          - entity: light.sonoff_kitchenlight
+            name: Cooking area
+            icon: mdi:track-light
+          - type: custom:fold-entity-row
+            head:
+                entity: light.kitchen_spots
+                name: Spots
+                icon: mdi:track-light
+            items:
+              - entity: light.kitchen_spot_1
+                name: Spot 1
+                icon: mdi:track-light
+              - entity: light.kitchen_spot_2
+                name: Spot 2
+                icon: mdi:track-light
+              - entity: light.kitchen_spot_3
+                name: Spot 3
+                icon: mdi:track-light
+        show_header_toggle: true
+        title: Kitchen
+        type: entities
+      - entities:
+          - entity: light.nick_room_main
+            name: Main light
+            icon: mdi:ceiling-light
+        show_header_toggle: false
+        title: Nick Room
+        type: entities
+      - entities:
+          - entity: light.sonoff_livingroom_light
+            name: Lamp
+            icon: mdi:lamp
+          - entity: light.sonoff_bedroom_light
+            name: Spot
+            icon: mdi:ceiling-light
+        show_header_toggle: true
+        title: Livingroom
+        type: entities
+      - entities:
+          - type: custom:fold-entity-row
+            head:
+              type: custom:slider-entity-row
+              entity: light.all_bedroom_lights
+              name: All
+              icon: mdi:light-switch
+            entities:
+              - entity: scene.away_pandu_lights
+                name: Dog Alone
+                tap_action:
+                 action: call-service
+                 service: scene.turn_on
+                 service_data:
+                   entity_id: scene.away_pandu_lights
+          - entity: light.bedroom_light_1
+            name: Nightstand
+            icon: mdi:lamp
+          - entity: light.bedroom_light_2
+            name: Desk
+            icon: mdi:desk-lamp
+          - entity: light.floor_light
+            name: Floor lamp
+            icon: mdi:floor-lamp
+          - entity: light.bedroom_light_3
+            name: Shelf lamp
+            icon: mdi:lamp
+        show_header_toggle: true
+        title: Bedroom
+        type: entities
+    icon: 'mdi:lightbulb'
+    title: Lights
+
+########################################################
+##
+##              SCENES
+##
+########################################################
+  - cards:
+      - type: glance
+        title: Kitchen / General
+        show_state: false
+        column_width: 33%
+        entities:
+          - entity: scene.away_pandu_lights
+            name: Dog Alone
+            tap_action:
+             action: call-service
+             service: scene.turn_on
+             service_data:
+               entity_id: scene.away_pandu_lights
+          - entity: scene.kitchen_daytime_lights
+            name: Kitchen Daytime
+            tap_action:
+             action: call-service
+             service: scene.turn_on
+             service_data:
+               entity_id: scene.kitchen_daytime_lights
+          - entity: scene.kitchen_evening_lights
+            name: Kitchen Evening
+            tap_action:
+             action: call-service
+             service: scene.turn_on
+             service_data:
+               entity_id: scene.kitchen_evening_lights
+          - entity: scene.kitchen_wakeup_lights
+            name: Kitchen Wakeup
+            tap_action:
+             action: call-service
+             service: scene.turn_on
+             service_data:
+               entity_id: scene.kitchen_wakeup_lights
+      - type: glance
+        title: Bedroom
+        show_state: false
+        column_width: 33%
+        entities:
+          - entity: scene.bedroom_evening_lights
+            name: Evening
+            tap_action:
+             action: call-service
+             service: scene.turn_on
+             service_data:
+               entity_id: scene.bedroom_evening_lights
+          - entity: scene.bedroom_bedtime_lights
+            name: Bedtime
+            tap_action:
+             action: call-service
+             service: scene.turn_on
+             service_data:
+               entity_id: scene.bedroom_bedtime_lights
+      - type: glance
+        title: Livingroom
+        show_state: false
+        column_width: 33%
+        entities:
+          - entity: scene.television_lights
+            name: Television
+            tap_action:
+             action: call-service
+             service: scene.turn_on
+             service_data:
+               entity_id: scene.television_lights
+
+    icon: 'mdi:layers'
+    title: Scenes
+  ########################################################
+  ##
+  ##              HOME
+  ##
+  ########################################################
+  - cards:
+      - type: entity-filter
+        entities:
+          - person.eric
+          - person.nathalie
+          - person.nick
+          - person.mina
+        state_filter:
+          - home
+        card:
+          type: glance
+          title: People at home
+      - entities:
+        - entity: input_boolean.vacation_mode
+          icon: mdi:airplane
+        - entity: input_boolean.guest_mode
+          icon: mdi:account-multiple
+        show_header_toggle: false
+        type: entities
+      - type: custom:vertical-stack-in-card
+        title: Kitchen
+        cards:
+        - type: entities
+          entities:
+          - type: custom:slider-entity-row
+            entity: light.all_kitchen_lights
+            name: All
+            icon: mdi:light-switch
+          - entity: light.kitchen_light
+            name: Main light
+            icon: mdi:ceiling-light
+          - entity: light.sonoff_kitchenlight
+            name: Cooking area
+            icon: mdi:track-light
+          - type: custom:fold-entity-row
+            head:
+              entity: light.kitchen_spots
+              name: Spots
+              icon: mdi:track-light
+            items:
+            - entity: light.kitchen_spot_1
+              name: Spot 1
+              icon: mdi:track-light
+            - entity: light.kitchen_spot_2
+              name: Spot 2
+              icon: mdi:track-light
+            - entity: light.kitchen_spot_3
+              name: Spot 3
+              icon: mdi:track-light
+          show_header_toggle: true
+          title: Lights
+        - type: horizontal-stack
+          title: Sensors
+          cards:
+            - type: custom:mini-graph-card
+              entities:
+                - sensor.temperature_158d0002789e17
+              line_color: '#3498db'
+              line_width: 8
+              hour24: true
+              font_size: 60
+              font_size_header: 12.5
+              name: Temperature
+              show:
+                extrema: false
+                fill: fade
+                labels: false
+                name: true
+                state: true
+            - type: custom:mini-graph-card
+              entities:
+                - sensor.humidity_158d0002789e17
+              line_color: '#e74c3c'
+              line_width: 8
+              hour24: true
+              font_size: 60
+              font_size_header: 12.5
+              name: Humidity
+              show:
+                extrema: false
+                fill: fade
+                labels: false
+                name: true
+                state: true
+            - type: custom:mini-graph-card
+              entities:
+                - sensor.pressure_158d0002789e17
+              line_color: '#f1c40f'
+              hour24: true
+              line_width: 8
+              name: Pressure
+              icon: mdi:gauge
+              font_size: 60
+              font_size_header: 12.5
+              show:
+                extrema: false
+                fill: fade
+                labels: false
+                name: true
+                state: true
+        - type: glance
+          entities:
+          - entity: sensor.front_door
+            name: Front door
+          - entity: sensor.window_1
+            name: Kitchen
+
+      - cards:
+        - cards:
+          - color: auto
+            icon: mdi:weather-sunset-up
+            lock:
+              enabled: true
+            name: Wake up
+            styles:
+              card:
+              - font-size: 12px
+              - font-weight: bold
+              - height: 70px
+            tap_action:
+              action: call-service
+              service: input_boolean.turn_off
+              service_data:
+                entity_id: input_boolean.sleep_mode
+            type: custom:button-card
+          - color: auto
+            entity: input_boolean.sleep_mode
+            icon: mdi:weather-night
+            lock:
+              enabled: true
+            name: '[[[ if (entity.state == "on") return "Sleep mode on"; else return "Good
+              Night" ]]]'
+            styles:
+              card:
+              - font-size: 12px
+              - font-weight: bold
+              - height: 70px
+            tap_action:
+              action: call-service
+              service: script.going_to_sleep
+            type: custom:button-card
+          type: horizontal-stack
+        - cards:
+          - color: auto
+            icon: mdi:home-map-marker
+            lock:
+              enabled: true
+            name: Arrive Home
+            styles:
+              card:
+              - font-size: 12px
+              - font-weight: bold
+              - height: 70px
+            tap_action:
+              action: call-service
+              service: script.cozy_lights_living_room
+            type: custom:button-card
+          - color: auto
+            icon: mdi:home-export-outline
+            lock:
+              enabled: true
+            name: Leave Home
+            styles:
+              card:
+              - font-size: 12px
+              - font-weight: bold
+              - height: 70px
+            tap_action:
+              action: call-service
+              service: script.turn_off_everything
+            type: custom:button-card
+          type: horizontal-stack
+        type: vertical-stack
+
+      - entities:
+        - entity: input_boolean.sleep_mode
+        - entity: input_boolean.dark_mode
+        show_header_toggle: false
+        type: entities
+
+      - type: custom:vertical-stack-in-card
+        title: Bedroom
+        cards:
+        - entities:
+            - type: custom:slider-entity-row
+              entity: light.all_bedroom_lights
+              name: All
+              icon: mdi:light-switch
+            - entity: light.bedroom_light_1
+              name: Nightstand
+              icon: mdi:lamp
+            - entity: light.bedroom_light_2
+              name: Desk
+              icon: mdi:desk-lamp
+            - entity: light.floor_light
+              name: Floor lamp
+              icon: mdi:floor-lamp
+            - entity: light.bedroom_light_3
+              name: Shelf lamp
+              icon: mdi:lamp
+          show_header_toggle: true
+          title: Lights
+          type: entities
+        - type: horizontal-stack
+          title: Sensors
+          cards:
+            - type: custom:mini-graph-card
+              entities:
+                - sensor.temperature_158d0002789d06
+              line_color: '#3498db'
+              line_width: 8
+              hour24: true
+              font_size: 60
+              font_size_header: 12.5
+              name: Temperature
+              show:
+                extrema: false
+                fill: fade
+                labels: false
+                name: true
+                state: true
+            - type: custom:mini-graph-card
+              entities:
+                - sensor.humidity_158d0002789d06
+              line_color: '#e74c3c'
+              line_width: 8
+              hour24: true
+              font_size: 60
+              font_size_header: 12.5
+              name: Humidity
+              show:
+                extrema: false
+                fill: fade
+                labels: false
+                name: true
+                state: true
+            - type: custom:mini-graph-card
+              entities:
+                - sensor.pressure_158d0002789d06
+              line_color: '#f1c40f'
+              hour24: true
+              line_width: 8
+              name: Pressure
+              icon: mdi:gauge
+              font_size: 60
+              font_size_header: 12.5
+              show:
+                extrema: false
+                fill: fade
+                labels: false
+                name: true
+                state: true
+        - type: glance
+          entities:
+          - entity: sensor.window_2
+            name: Bedroom
+          - entity: sensor.window_3
+            name: Bedroom
+
+      - type: custom:vertical-stack-in-card
+        title: Livingroom
+        cards:
+        - entities:
+            - entity: light.sonoff_livingroom_light
+              name: Lamp
+              icon: mdi:lamp
+            - entity: light.sonoff_bedroom_light
+              name: Spot
+              icon: mdi:ceiling-light
+          show_header_toggle: true
+          title: Lights
+          type: entities
+        - type: glance
+          entities:
+          - entity: sensor.window_3
+            name: Livingroom
+
+      - type: custom:vertical-stack-in-card
+        title: Nick Room
+        cards:
+        - entities:
+            - entity: light.nick_room_main
+              name: Main light
+              icon: mdi:ceiling-light
+          show_header_toggle: false
+          title: Lights
+          type: entities
+        - type: glance
+          entities:
+          - entity: sensor.window_3
+            name: Nick Room
+
+      - type: glance
+        title: Sensors
+        entities:
+        - entity: sensor.water_1
+          name: Washing machine
+
+    icon: 'mdi:home'
+    title: Home
+
+########################################################
+##
+##              WEATHER
+##
+########################################################
+  - cards:
+      - entities:
+          - sensor.dark_sky_apparent_temperature
+          - sensor.dark_sky_daytime_high_temperature_0d
+          - sensor.dark_sky_overnight_low_temperature_0d
+          - sensor.air_pressure_template
+          - sensor.dark_sky_uv_index_0d
+          - sensor.dark_sky_cloud_coverage_0d
+          - sensor.dark_sky_precip_type_template
+          - sensor.dark_sky_precip_probability_template
+          - sensor.dark_sky_daily_max_precip_intensity_0d
+          - sensor.dark_sky_wind_bearing_template
+          - sensor.dark_sky_wind_speed_0d
+        show_header_toggle: true
+        title: Today's Forecast
+        type: entities
+        show_header_toggle: false
+      - entities:
+          - sensor.dark_sky_overnight_low_temperature_1d
+          - sensor.dark_sky_daytime_high_temperature_1d
+          - sensor.air_pressure_tomorrow_template
+          - sensor.dark_sky_uv_index_1d
+          - sensor.dark_sky_cloud_coverage_1d
+          - sensor.dark_sky_precip_type_tomorrow_template
+          - sensor.dark_sky_precip_probability_tomorrow_template
+          - sensor.dark_sky_daily_max_precip_intensity_1d
+          - sensor.dark_sky_wind_bearing_tomorrow_template
+          - sensor.dark_sky_wind_speed_1d
+        show_header_toggle: true
+        title: Tomorrow's Forecast
+        type: entities
+        show_header_toggle: false
+      - entities:
+          - sensor.day_night
+          - sensor.solar_angle
+          - sensor.sunrise
+          - sensor.sunset
+          - sensor.moon
+          - sensor.season_template
+        show_header_toggle: true
+        title: Sun & Moon
+        type: entities
+        show_header_toggle: false
+    icon: 'mdi:weather-partly-cloudy'
+    path: weather
+    title: Weather
+########################################################
+##
+##              SYSTEM
+##
+########################################################
+  - cards:
+      - type: vertical-stack
+        cards:
+          - entities:
+              - sensor.time_online
+              # - sensor.connected_clients
+              - sensor.current_version
+              - sensor.last_boot
+            show_header_toggle: false
+            title: General
+            type: entities
+          - entities:
+              - sensor.ipv4_address_eth0
+              # - sensor.ipv6_address_eth0
+              - sensor.network_in_eth0
+              - sensor.network_out_eth0
+              - sensor.packets_in_eth0
+              - sensor.packets_out_eth0
+            show_header_toggle: false
+            title: Network
+            type: entities
+      - type: vertical-stack
+        cards:
+          - type: gauge
+            unit: '%'
+            entity: sensor.processor_use
+            name: Processor usage
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
+          - type: gauge
+            unit: '%'
+            entity: sensor.memory_use_percent
+            name: Memory usage
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
+          - type: gauge
+            unit: '%'
+            entity: sensor.disk_use_percent
+            name: Disk usage
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
+          - type: gauge
+            unit: '%'
+            entity: sensor.swap_use_percent
+            name: Swap usage
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
+      - type: vertical-stack
+        cards:
+          - type: gauge
+            entity: sensor.load_1m_template
+            name: Load 1m
+            max: 1.0
+            severity:
+              green: 0.0
+              yellow: 0.5
+              red: 0.9
+          - type: gauge
+            entity: sensor.load_5m_template
+            name: Load 5m
+            max: 1.0
+            severity:
+              green: 0.0
+              yellow: 0.5
+              red: 0.9
+          - type: gauge
+            entity: sensor.load_15m_template
+            name: Load 15m
+            max: 1.0
+            severity:
+              green: 0.0
+              yellow: 0.5
+              red: 0.9
+    icon: 'mdi:server'
+    title: System
+
+########################################################
+##
+##              SYSTEM SETTINGS
+##
+########################################################
+  - cards:
+      - type: markdown
+        content: >
+          ## System Settings
+
+          Panel for system settings. If you are not supposed to be here, please do not change anything.
+
+          **Any changes will be reported to the administrator.**
+      - entities:
+          - entity: switch.security_detect_door_open
+            name: Door open detection
+            icon: mdi:door-closed-lock
+          - entity: switch.security_motion_detector
+            name: Motion detection
+            icon: mdi:motion-sensor
+        title: Security
+        type: entities
+        show_header_toggle: false
+      - entities:
+          - entity: input_boolean.automatic_theme_changer
+            name: Dark/Light mode changer
+            icon: mdi:theme-light-dark
+        title: Backend
+        type: entities
+        show_header_toggle: false
+      - entities:
+          - entity: switch.automation_vacation_mode_2
+            name: Vacation mode detection
+            icon: mdi:airplane
+        title: Home Occupancy
+        type: entities
+        show_header_toggle: false
+      - entities:
+          - entity: input_boolean.night_turn_off
+            name: Night turn off
+            icon: mdi:weather-night
+          - entity: input_boolean.coming_home_lights
+            name: Coming home lights
+            icon: mdi:home-import-outline
+          - entity: input_boolean.switch_kitchen
+            name: Switch Kitchen
+            icon: mdi:light-switch
+          - entity: input_boolean.switch_bedroom
+            name: Switch Bedroom
+            icon: mdi:light-switch
+          - entity: input_boolean.switch_livingroom
+            name: Switch Livingroom
+            icon: mdi:light-switch
+          - entity: input_boolean.switch_nickroom
+            name: Switch Nick Room
+            icon: mdi:light-switch
+          - entity: switch.flux_bedroom
+            name: Flux Bedroom
+            icon: mdi:theme-light-dark
+          - entity: switch.flux_kitchen
+            name: Flux Kitchen
+            icon: mdi:theme-light-dark
+          - entity: switch.flux_nick_room
+            name: Flux Nick Room
+            icon: mdi:theme-light-dark
+        show_header_toggle: true
+        title: Lights
+        type: entities
+      - entities:
+          - entity: script.test_telegr
+            name: Test telegram
+        show_header_toggle: false
+        title: Scripts
+        type: entities
+      - entities:
+          - switch.flux_bedroom
+          - switch.flux_kitchen
+          - switch.flux_nick_room
+        show_header_toggle: true
+        title: Switches
+        type: entities
+      - entities:
+          - binary_sensor.water_leak_sensor_158d000237265a
+          - input_boolean.switch_general_purpose
+          - input_select.automations_preset
+        show_header_toggle: true
+        title: Developments
+        type: entities
+      - entities:
+          - sensor.front_door
+          - sensor.window_1
+          - sensor.window_2
+          - sensor.window_3
+        show_header_toggle: true
+        title: Sensors
+        type: entities
+    icon: 'mdi:settings'
+    title: Automation

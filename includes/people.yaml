@@ -1,0 +1,25 @@
+- name: Eric
+  id: eric
+  user_id: 69089c1e195b44d3af1c903a2fb1b649
+  device_trackers:
+    # - device_tracker.iphone_iosapp
+    - device_tracker.iphone
+
+- name: Nathalie
+  id: nathalie
+  user_id: 3879c45742484d3585d69ba237df073e
+  device_trackers:
+    # - device_tracker.nathalie_iphone_iosapp
+    - device_tracker.nathalie_iphone
+
+- name: Nick
+  id: nick
+  user_id: bb9fd1dc49b84691b3bbd3b1a98b4122
+  device_trackers:
+    - device_tracker.iphone_2
+
+- name: Mina
+  id: mina
+  # user_id: bb9fd1dc49b84691b3bbd3b1a98b4122
+  device_trackers:
+    - device_tracker.iphonedemina

@@ -1,0 +1,6 @@
+switches:
+  name: Switches
+  entities:
+    - switch.flux_bedroom
+    - switch.flux_kitchen
+    - switch.flux_nick_room

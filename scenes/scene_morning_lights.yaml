@@ -1,0 +1,19 @@
+- name: morning_lights
+  entities:
+    light.bedroom_light_3:
+      state: off
+    light.bedroom_light_2:
+      state: on
+      color_temp: 480
+      brightness: 10
+      transition: 10
+    light.floor_light:
+      state: on
+      color_temp: 480
+      brightness: 10
+      transition: 10
+    light.bedroom_light_1:
+      state: on
+      color_temp: 480
+      brightness: 10
+      transition: 10

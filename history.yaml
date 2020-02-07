@@ -1,0 +1,6 @@
+exclude:
+  entities:
+    - light.group_for_wakeup
+    - light.group_for_wakeup_2
+    - light.group_for_wakeup_3
+    - light.group_for_wakeup_4

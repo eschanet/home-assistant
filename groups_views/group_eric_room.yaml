@@ -1,0 +1,10 @@
+eric_room:
+  name: Bedroom
+  entities:
+    - light.bedroom_light_1
+    - light.bedroom_light_2
+    - light.bedroom_light_3
+    - light.floor_light
+    - sensor.temperature_158d0002789d06
+    - sensor.humidity_158d0002789d06
+    - sensor.pressure_158d0002789d06

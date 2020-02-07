@@ -1,0 +1,26 @@
+who_buys_bread:
+  name: Who buys bread today
+  options:
+   - Eric
+   - Nathalie
+   - Nick
+  initial: Eric
+  icon: mdi:panda
+
+living_room_preset:
+  options:
+    - Visitors
+    - Visitors with kids
+    - Home Alone
+
+bedroom_scene_select:
+  options:
+    - scene.bedroom_evening_lights
+    - scene.bedroom_bedtime_lights
+
+automations_preset:
+  options:
+    - Guest Mode
+    - Vacation
+    - Away
+    - Normal

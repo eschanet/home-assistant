@@ -1,0 +1,7 @@
+kitchen:
+  name: Kitchen
+  entities:
+    - light.kitchen_light
+    - light.sonoff_kitchenlight
+    #without light.kitchen_spots because these are kind of separate anyway
+    #- light.kitchen_spots

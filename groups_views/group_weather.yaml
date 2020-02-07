@@ -1,0 +1,47 @@
+weather:
+  name: Weather
+  entities:
+    - sun.sun
+    - sensor.yr_temperature
+    - sensor.yr_pressure
+    - sensor.yr_humidity
+
+
+today_forecast:
+  name: "Today's Forecast"
+  entities:
+   - sensor.dark_sky_apparent_temperature
+   - sensor.dark_sky_daily_temperature_low
+   - sensor.dark_sky_daily_temperature_high
+   - sensor.air_pressure_template
+   # - sensor.air_quality
+   - sensor.dark_sky_uv_index
+   - sensor.dark_sky_cloud_coverage
+   - sensor.dark_sky_precip_type_template
+   - sensor.dark_sky_precip_probability_template
+   - sensor.dark_sky_daily_precip_intensity_max
+   - sensor.dark_sky_wind_bearing_template
+   - sensor.dark_sky_wind_speed
+
+tomorrow_forecast:
+  name: "Tomorrow's Forecast"
+  entities:
+   - sensor.dark_sky_daily_low_temperature_1
+   - sensor.dark_sky_daily_high_temperature_1
+   - sensor.air_pressure_tomorrow_template
+   - sensor.dark_sky_cloud_coverage_1
+   - sensor.dark_sky_precip_type_tomorrow_template
+   - sensor.dark_sky_precip_probability_tomorrow_template
+   - sensor.dark_sky_daily_max_precip_intensity_1
+   - sensor.dark_sky_wind_bearing_tomorrow_template
+   - sensor.dark_sky_wind_speed_1
+
+sun_moon:
+  name: "Sun & Moon"
+  entities:
+    - sensor.day_night
+    - sensor.solar_angle
+    - sensor.sunrise
+    - sensor.sunset
+    - sensor.moon
+    - sensor.season_template

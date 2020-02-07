@@ -1,0 +1,314 @@
+light.eric_desk:
+  friendly_name: Eric Desk
+  homebridge_visible: true
+light.eric_nightstand:
+  friendly_name: Bedside Light
+  homebridge_visible: true
+light.bathroom:
+  friendly_name: Bathroom Light
+  homebridge_visible: true
+
+light.kitchen_main:
+  friendly_name: Main Light
+  homebridge_visible: true
+light.sonoff_kitchenlight:
+  friendly_name: Cooking Area Spots
+  homebridge_visible: true
+
+light.kitchen_spot_1:
+  friendly_name: Kitchen Spot 1
+  homebridge_visible: true
+light.kitchen_spot_2:
+  friendly_name: Kitchen Spot 2
+  homebridge_visible: true
+light.kitchen_spot_3:
+  friendly_name: Kitchen Spot 3
+  homebridge_visible: true
+light.kitchen_spots:
+  friendly_name: Kitchen Spots
+  homebridge_visible: true
+
+light.sonoff_bedroom_light:
+  friendly_name: Spot Light
+  homebridge_visible: true
+light.sonoff_livingroom_light:
+  friendly_name: Livingroom Spot
+  homebridge_visible: true
+light.livingroom:
+  friendly_name: Small Light
+  homebridge_visible: true
+light.nick_room_main:
+  friendly_name: Nick Room Light
+  homebridge_visible: true
+light.gateway_light_34ce0091e554:
+  friendly_name: Night Light
+  homebridge_hidden: true
+light.group_for_wakeup:
+  homebridge_hidden: true
+light.group_for_wakeup_2:
+  homebridge_hidden: true
+light.group_for_wakeup_3:
+  homebridge_hidden: true
+light.group_for_wakeup_4:
+  homebridge_hidden: true
+light.bathroom_group:
+  homebridge_hidden: true
+light.bedroom_group:
+  homebridge_hidden: true
+light.kitchen_group:
+  homebridge_hidden: true
+light.nick_room_group:
+  homebridge_hidden: true
+light.livingroom_group:
+  homebridge_hidden: true
+
+group.eric_room:
+  homebridge_hidden: true
+group.nick_room:
+  homebridge_hidden: true
+group.kitchen:
+  homebridge_hidden: true
+group.all_lights:
+  homebridge_hidden: true
+group.all_automations:
+  homebridge_hidden: true
+group.bathroom:
+  homebridge_hidden: true
+group.default_view:
+  homebridge_hidden: true
+group.weather:
+  homebridge_hidden: true
+group.sensors:
+  homebridge_hidden: true
+group.switches:
+  homebridge_hidden: true
+group.all_devices:
+  homebridge_hidden: true
+group.livingroom:
+  homebridge_hidden: true
+group.night_bathroom:
+  homebridge_hidden: true
+group.automations_group:
+  homebridge_hidden: true
+group.automation_view:
+  homebridge_hidden: true
+
+scene.bedroom_evening_lights:
+  friendly_name: Bedroom Evening Lights
+  homebridge_hidden: true
+  icon: 'mdi:weather-sunset-down'
+scene.bedroom_bedtime_lights:
+  friendly_name: Bedroom Bedtime Lights
+  homebridge_hidden: true
+  icon: 'mdi:sleep'
+scene.away_pandu_lights:
+  friendly_name: Away Pandu Lights
+  homebridge_hidden: true
+  icon: 'mdi:dog-side'
+scene.kitchen_daytime_lights:
+  friendly_name: Kitchen Daytime
+  homebridge_hidden: true
+  icon: 'mdi:lightbulb-on-outline'
+scene.kitchen_evening_lights:
+  friendly_name: Kitchen Evening
+  homebridge_hidden: true
+  icon: 'mdi:weather-sunset-down'
+scene.kitchen_wakeup_lights:
+  friendly_name: Kitchen Wakeup
+  homebridge_hidden: true
+  icon: 'mdi:weather-sunset-up'
+scene.television_lights:
+  friendly_name: Television
+  homebridge_hidden: true
+  icon: 'mdi:netflix'
+
+binary_sensor.motion_sensor_158d0001e52398:
+  friendly_name: Motion Sensor
+  homebridge_hidden: true
+binary_sensor.switch_158d0002134dfa:
+  friendly_name: Switch Livingroom
+  homebridge_hidden: true
+binary_sensor.switch_158d0002134f5b:
+  friendly_name: Switch Bedroom
+  homebridge_hidden: true
+binary_sensor.switch_158d0002135ae2:
+  friendly_name: Switch
+  homebridge_hidden: true
+binary_sensor.door_window_sensor_158d0001b7a868:
+  friendly_name: Sensor Front Door
+  homebridge_hidden: true
+binary_sensor.door_window_sensor_158d00041d0daf:
+  friendly_name: Window Nick Room
+  homebridge_hidden: true
+binary_sensor.door_window_sensor_158d000420b316:
+  friendly_name: Window Livingroom
+  homebridge_hidden: true
+binary_sensor.door_window_sensor_158d00020455e1:
+  friendly_name: Window Kitchen
+  homebridge_hidden: true
+binary_sensor.door_window_sensor_158d00020456e9:
+  friendly_name: Door Bedroom
+  homebridge_hidden: true
+binary_sensor.door_window_sensor_158d000205b57f:
+  friendly_name: Window Bedroom
+  homebridge_hidden: true
+binary_sensor.wall_switch_158d0001834217:
+  friendly_name: Wallswitch2
+  homebridge_hidden: true
+binary_sensor.wall_switch_158d000183adbd:
+  friendly_name: Wallswitch1
+  homebridge_hidden: true
+
+sensor.temperature_158d0002789d06:
+  friendly_name: Temperature Bedroom
+sensor.humidity_158d0002789d06:
+  friendly_name: Humidity Bedroom
+sensor.pressure_158d0002789d06:
+  friendly_name: Pressure Bedroom
+sensor.temperature_158d0002789e17:
+  friendly_name: Temperature Kitchen
+sensor.humidity_158d0002789e17:
+  friendly_name: Humidity Kitchen
+sensor.pressure_158d0002789e17:
+  friendly_name: Pressure Kitchen
+
+automation.sunset:
+  homebridge_hidden: true
+automation.bathroom_light_on_night:
+  homebridge_hidden: true
+automation.bathroom_light_off_night:
+  homebridge_hidden: true
+automation.bathroom_light_on_day:
+  homebridge_hidden: true
+automation.bathroom_light_off_day:
+  homebridge_hidden: true
+automation.turn_on_bedroom:
+  homebridge_hidden: true
+automation.turn_off_bedroom:
+  homebridge_hidden: true
+automation.toggle_nick_room_light:
+  homebridge_hidden: true
+automation.toggle_kitchen:
+  homebridge_hidden: true
+automation.toggle_liviginroom_light:
+  homebridge_hidden: true
+
+device_tracker.ericiphone:
+  homebridge_hidden: true
+  entity_picture: /local/eric.jpg
+  friendly_name: 'Eric'
+device_tracker.nathalieiphone:
+  homebridge_hidden: true
+  entity_picture: /local/nathalie.jpg
+  friendly_name: 'Nathalie'
+device_tracker.nickiphone:
+  homebridge_hidden: true
+  entity_picture: /local/nick.jpg
+  friendly_name: 'Nick'
+device_tracker.iphonedemina:
+  homebridge_hidden: true
+  entity_picture: /local/mina.jpg
+  friendly_name: 'Mina'
+
+person.eric:
+  homebridge_hidden: true
+  entity_picture: /local/eric.jpg
+  friendly_name: 'Eric'
+person.nathalie:
+  homebridge_hidden: true
+  entity_picture: /local/nathalie.jpg
+  friendly_name: 'Nathalie'
+person.nick:
+  homebridge_hidden: true
+  entity_picture: /local/nick.jpg
+  friendly_name: 'Nick'
+person.mina:
+  homebridge_hidden: true
+  entity_picture: /local/mina.jpg
+  friendly_name: 'Mina'
+
+sensor.cpu_use:
+  friendly_name: Processor
+  icon: mdi:chip
+sensor.connected_clients:
+  friendly_name: Connections
+  icon: mdi:lan-connect
+sensor.current_version:
+  friendly_name: Installed
+  icon: mdi:folder-download
+sensor.disk_free_space:
+  icon: mdi:harddisk
+sensor.memory_use_percent:
+  friendly_name: Memory Use
+  icon: mdi:memory
+sensor.ram_use:
+  friendly_name: Memory Use
+  icon: mdi:memory
+sensor.dark_sky_apparent_temperature:
+  friendly_name: Feels Like
+  icon: mdi:human-male-female
+sensor.dark_sky_daytime_high_temperature_0d:
+  friendly_name: High
+  icon: mdi:temperature-celsius
+sensor.dark_sky_overnight_low_temperature_0d:
+  friendly_name: Low
+  icon: mdi:temperature-celsius
+sensor.dark_sky_daytime_high_temperature_1d:
+  friendly_name: High
+  icon: mdi:temperature-celsius
+sensor.dark_sky_overnight_low_temperature_1d:
+  friendly_name: Low
+  icon: mdi:temperature-celsius
+sensor.dark_sky_cloud_coverage_0d:
+  friendly_name: Cloud Coverage
+  icon: mdi:weather-partlycloudy
+sensor.dark_sky_cloud_coverage_1d:
+  friendly_name: Cloud Coverage
+  icon: mdi:weather-partlycloudy
+sensor.dark_sky_precip_probability_template:
+  icon: mdi:weather-rainy
+sensor.dark_sky_precip_probability_tomorrow_template:
+  icon: mdi:weather-rainy
+sensor.dark_sky_daily_max_precip_intensity_0d:
+  friendly_name: Amount of Precipitation
+  icon: mdi:cup-water
+sensor.dark_sky_daily_max_precip_intensity_1d:
+  friendly_name: Amount of Precipitation
+  icon: mdi:cup-water
+sensor.dark_sky_wind_bearing_template:
+  icon: mdi:compass-outline
+sensor.dark_sky_wind_bearing_tomorrow_template:
+  icon: mdi:compass-outline
+sensor.dark_sky_wind_speed_0d:
+  friendly_name: Wind Speed
+  icon: mdi:weather-windy
+sensor.dark_sky_wind_speed_1d:
+  friendly_name: Wind Speed
+  icon: mdi:weather-windy
+sensor.date:
+  icon: mdi:calendar
+sensor.air_pressure_template:
+  icon: mdi:gauge
+sensor.air_pressure_tomorrow_template:
+  icon: mdi:gauge
+sensor.solar_angle:
+  icon: mdi:vector-curve
+sensor.sunrise:
+  icon: mdi:weather-sunset-up
+sensor.sunset:
+  icon: mdi:weather-sunset-down
+sensor.network_in_eth0:
+  friendly_name: Network in
+  icon: mdi:download-network
+sensor.network_out_eth0:
+  friendly_name: Network out
+  icon: mdi:upload-network
+sensor.packets_in_eth0:
+  friendly_name: Packets in
+  icon: mdi:transfer-down
+sensor.packets_out_eth0:
+  friendly_name: Packets out
+  icon: mdi:transfer-up
+sensor.ipv4_address_eth0:
+  friendly_name: IPv4 address
+  icon: mdi:ip-network

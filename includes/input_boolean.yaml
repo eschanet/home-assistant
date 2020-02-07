@@ -1,0 +1,42 @@
+coming_home_lights:
+  name: Coming home lights
+  icon: mdi:panda
+
+night_turn_off:
+  name: Night turn off
+
+dummy_boolean:
+  name: dummy boolean
+  icon: mdi:panda
+
+switch_livingroom:
+  name: Switch Livingroom
+
+switch_kitchen:
+  name: Switch Kitchen
+
+switch_bedroom:
+  name: Switch Bedroom
+
+switch_general_purpose:
+  name: General Purpose Switch
+
+switch_nickroom:
+  name: Switch Nick Room
+
+vacation_mode:
+  name: Vacation mode
+
+guest_mode:
+  name: Guest mode
+
+dark_mode:
+  name: Dark mode
+  icon: mdi:theme-light-dark
+
+sleep_mode:
+  name: Sleep mode
+  icon: mdi:bed-king
+
+automatic_theme_changer:
+  name: Sun-based theme changer

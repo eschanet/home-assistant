@@ -1,0 +1,5 @@
+automations_group:
+  name: Automation
+  entities:
+    - group.all_automations
+    - script.test_telegr

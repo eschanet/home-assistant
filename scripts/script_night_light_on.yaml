@@ -1,0 +1,8 @@
+turn_on_night_light:
+  alias: Turn on night light
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.gateway_light_34ce0091e554
+        brightness: 50
+        rgb_color: [180,60,19]

@@ -1,0 +1,6 @@
+test_telegr:
+  alias: 'test telegr'
+  sequence:
+    - service: notify.telegram
+      data:
+        message: 'This is a test message'

@@ -1,0 +1,12 @@
+- alias: night_turn_off
+  hide_entity: False
+  trigger:
+    platform: time
+    at: '00:15:00'
+  action:
+    service: homeassistant.turn_off
+    entity_id:
+      - group.kitchen
+      - group.eric_room
+      - group.livingroom
+      - light.kitchen_spots

@@ -1,0 +1,11 @@
+system_status:
+  name: "System Status"
+  entities:
+    - sensor.time_online
+    # - sensor.since_last_boot_template
+    - sensor.connected_clients
+  #  - sensor.hass_release
+    - sensor.current_version
+    - sensor.disk_free_space
+    - sensor.memory_use
+#- automation.system__hass__update_notification

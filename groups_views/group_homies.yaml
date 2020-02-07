@@ -1,0 +1,6 @@
+my_homies:
+  name: Homies
+  entities:
+    - person.eric
+    - person.nathalie
+    - person.nick

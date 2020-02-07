@@ -1,0 +1,23 @@
+#-
+#              _   _  __
+#  _ __   ___ | |_(_)/ _|_   _
+# | '_ \ / _ \| __| | |_| | | |
+# | | | | (_) | |_| |  _| |_| |
+# |_| |_|\___/ \__|_|_|  \__, |
+#                        |___/
+#
+
+# - platform: webostv
+#   host: !secret ip_tv
+#   name: tv
+#   filename: webostv.conf
+
+- platform: group
+  name: all_iphones
+  services:
+    - service: mobile_app_iphone
+    # - service: mobile_app_nathalie_iphone
+
+- platform: telegram
+  name: telegram
+  chat_id: !secret telegram_chatID

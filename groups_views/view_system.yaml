@@ -1,0 +1,9 @@
+###########################################
+# System Tab
+###########################################
+system_view:
+  view: yes
+  icon: mdi:server
+  name: System
+  entities:
+    - group.system_status

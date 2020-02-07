@@ -1,0 +1,48 @@
+# - alias: bathroom_light_on
+#   initial_state: true
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.motion_sensor_158d0001e52398
+#     to: 'on'
+#   action:
+#     - service: light.turn_on
+#       data_template:
+#         entity_id: light.kitchen_main
+#         brightness: >
+#           {% if now().hour >= 24 %}
+#             100
+#           {% elif now().hour < 7 %}
+#             100
+#           {% else %}
+#             255
+#           {% endif %}
+#         kelvin: >
+#           {% if now().hour >= 24 %}
+#             2200
+#           {% elif now().hour < 7 %}
+#             2200
+#           {% else %}
+#             3000
+#           {% endif %}
+#     - service_template: >
+#         {% if now().hour >= 24 %}
+#           script.turn_on_night_light
+#         {% elif now().hour < 7 %}
+#           script.turn_on_night_light
+#         {% else %}
+#           script.turn_off_night_light
+#         {% endif %}
+#
+# - alias: bathroom_light_off
+#   initial_state: true
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.motion_sensor_158d0001e52398
+#     to: 'off'
+#     for:
+#       minutes: 1
+#   action:
+#     service: light.turn_off
+#     entity_id:
+#       - light.kitchen_main
+#       - light.gateway_light_34ce0091e554

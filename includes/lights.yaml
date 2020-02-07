@@ -1,0 +1,59 @@
+  - platform: mqtt
+    name: "sonoff-kitchenlight"
+    state_topic: "stat/sonoff-kitchenlight/POWER"
+    command_topic: "cmnd/sonoff-kitchenlight/power"
+    availability_topic: "tele/sonoff-kitchenlight/LWT"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: true
+
+  - platform: mqtt
+    name: "sonoff-bedroom-light"
+    state_topic: "stat/sonoff-bedroom-light/POWER"
+    command_topic: "cmnd/sonoff-bedroom-light/power"
+    availability_topic: "tele/sonoff-bedroom-light/LWT"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: true
+
+  - platform: mqtt
+    name: "sonoff-livingroom-light"
+    state_topic: "stat/sonoff-livingroom-light/POWER"
+    command_topic: "cmnd/sonoff-livingroom-light/power"
+    availability_topic: "tele/sonoff-livingroom-light/LWT"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: true
+
+  - platform: group
+    name: all_kitchen_lights
+    entities:
+      - light.kitchen_light
+      - light.sonoff_kitchenlight
+      - light.kitchen_spot_1
+      - light.kitchen_spot_2
+      - light.kitchen_spot_3
+
+  - platform: group
+    name: kitchen_spots
+    entities:
+      - light.kitchen_spot_1
+      - light.kitchen_spot_2
+      - light.kitchen_spot_3
+
+  - platform: group
+    name: all_bedroom_lights
+    entities:
+      - light.eric_nightstand
+      - light.eric_desk
+      - light.floor_light
+      - light.livingroom

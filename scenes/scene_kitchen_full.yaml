@@ -1,0 +1,14 @@
+- name: kitchen_full
+  entities:
+    light.sonoff_kitchenlight:
+      state: on
+    light.kitchen_light:
+      state: on
+      kelvin: 2700
+      brightness: 200
+      transition: 5
+    light.kitchen_spots:
+      state: on
+      kelvin: 2700
+      brightness: 200
+      transition: 5
